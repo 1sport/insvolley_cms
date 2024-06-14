@@ -812,6 +812,11 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    interviews: Attribute.Relation<
+      'api::author.author',
+      'oneToMany',
+      'api::interview.interview'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -873,6 +878,11 @@ export interface ApiInterviewInterview extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    author: Attribute.Relation<
+      'api::interview.interview',
+      'manyToOne',
+      'api::author.author'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

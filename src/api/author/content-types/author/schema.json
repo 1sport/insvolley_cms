@@ -24,6 +24,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "interviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::interview.interview",
+      "mappedBy": "author"
     }
   }
 }

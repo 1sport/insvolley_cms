@@ -46,6 +46,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "interviews"
     }
   }
 }
