@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_medias",
+  "info": {
+    "singularName": "video-media",
+    "pluralName": "video-medias",
+    "displayName": "Видео медиа"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "customField",
+      "customField": "plugin::oembed.oembed"
+    }
+  }
+}
