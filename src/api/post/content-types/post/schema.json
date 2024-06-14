@@ -4,7 +4,7 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "Post",
+    "displayName": "Пост",
     "description": ""
   },
   "options": {
@@ -60,6 +60,14 @@
       "relation": "manyToOne",
       "target": "api::tag.tag",
       "inversedBy": "posts"
+    },
+    "main": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean"
     }
   }
 }

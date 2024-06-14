@@ -793,7 +793,7 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   info: {
     singularName: 'author';
     pluralName: 'authors';
-    displayName: 'Author';
+    displayName: '\u0410\u0432\u0442\u043E\u0440';
     description: '';
   };
   options: {
@@ -840,7 +840,7 @@ export interface ApiInterviewInterview extends Schema.CollectionType {
   info: {
     singularName: 'interview';
     pluralName: 'interviews';
-    displayName: 'Interview';
+    displayName: '\u0418\u043D\u0442\u0435\u0440\u0432\u044C\u044E';
     description: '';
   };
   options: {
@@ -860,6 +860,13 @@ export interface ApiInterviewInterview extends Schema.CollectionType {
         };
       }>;
     image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -895,7 +902,7 @@ export interface ApiPostPost extends Schema.CollectionType {
   info: {
     singularName: 'post';
     pluralName: 'posts';
-    displayName: 'Post';
+    displayName: '\u041F\u043E\u0441\u0442';
     description: '';
   };
   options: {
@@ -935,6 +942,12 @@ export interface ApiPostPost extends Schema.CollectionType {
         };
       }>;
     tag: Attribute.Relation<'api::post.post', 'manyToOne', 'api::tag.tag'>;
+    main: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -956,7 +969,8 @@ export interface ApiTagTag extends Schema.CollectionType {
   info: {
     singularName: 'tag';
     pluralName: 'tags';
-    displayName: 'Tag';
+    displayName: '\u0422\u0435\u0433';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -990,6 +1004,35 @@ export interface ApiTagTag extends Schema.CollectionType {
   };
 }
 
+export interface ApiVideoMediaVideoMedia extends Schema.CollectionType {
+  collectionName: 'video_medias';
+  info: {
+    singularName: 'video-media';
+    pluralName: 'video-medias';
+    displayName: '\u0412\u0438\u0434\u0435\u043E \u043C\u0435\u0434\u0438\u0430';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    link: Attribute.Text & Attribute.CustomField<'plugin::oembed.oembed'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::video-media.video-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::video-media.video-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1012,6 +1055,7 @@ declare module '@strapi/types' {
       'api::interview.interview': ApiInterviewInterview;
       'api::post.post': ApiPostPost;
       'api::tag.tag': ApiTagTag;
+      'api::video-media.video-media': ApiVideoMediaVideoMedia;
     }
   }
 }
