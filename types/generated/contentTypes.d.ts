@@ -1006,6 +1006,38 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiRatingRating extends Schema.CollectionType {
+  collectionName: 'ratings';
+  info: {
+    singularName: 'rating';
+    pluralName: 'ratings';
+    displayName: '\u0420\u0435\u0439\u0442\u0438\u043D\u0433';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    number: Attribute.Integer & Attribute.Required;
+    points: Attribute.Integer & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::rating.rating',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::rating.rating',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1043,6 +1075,41 @@ export interface ApiTagTag extends Schema.CollectionType {
       'api::tag.tag'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiTurnirTurnir extends Schema.CollectionType {
+  collectionName: 'turnirs';
+  info: {
+    singularName: 'turnir';
+    pluralName: 'turnirs';
+    displayName: '\u0422\u0443\u0440\u043D\u0438\u0440';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    number: Attribute.Integer & Attribute.Required;
+    games: Attribute.Integer & Attribute.DefaultTo<0>;
+    points: Attribute.Integer & Attribute.DefaultTo<0>;
+    wins: Attribute.Integer & Attribute.DefaultTo<0>;
+    losses: Attribute.Integer & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::turnir.turnir',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::turnir.turnir',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1097,7 +1164,9 @@ declare module '@strapi/types' {
       'api::interview.interview': ApiInterviewInterview;
       'api::partner.partner': ApiPartnerPartner;
       'api::post.post': ApiPostPost;
+      'api::rating.rating': ApiRatingRating;
       'api::tag.tag': ApiTagTag;
+      'api::turnir.turnir': ApiTurnirTurnir;
       'api::video-media.video-media': ApiVideoMediaVideoMedia;
     }
   }
