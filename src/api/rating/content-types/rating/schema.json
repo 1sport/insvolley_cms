@@ -4,7 +4,8 @@
   "info": {
     "singularName": "rating",
     "pluralName": "ratings",
-    "displayName": "Рейтинг"
+    "displayName": "Рейтинг",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,13 @@
     "points": {
       "type": "integer",
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Мужчины",
+        "Женщины"
+      ]
     }
   }
 }

@@ -1012,6 +1012,7 @@ export interface ApiRatingRating extends Schema.CollectionType {
     singularName: 'rating';
     pluralName: 'ratings';
     displayName: '\u0420\u0435\u0439\u0442\u0438\u043D\u0433';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1020,6 +1021,12 @@ export interface ApiRatingRating extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     number: Attribute.Integer & Attribute.Required;
     points: Attribute.Integer & Attribute.Required;
+    type: Attribute.Enumeration<
+      [
+        '\u041C\u0443\u0436\u0447\u0438\u043D\u044B',
+        '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1084,6 +1091,7 @@ export interface ApiTurnirTurnir extends Schema.CollectionType {
     singularName: 'turnir';
     pluralName: 'turnirs';
     displayName: '\u0422\u0443\u0440\u043D\u0438\u0440';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1095,6 +1103,12 @@ export interface ApiTurnirTurnir extends Schema.CollectionType {
     points: Attribute.Integer & Attribute.DefaultTo<0>;
     wins: Attribute.Integer & Attribute.DefaultTo<0>;
     losses: Attribute.Integer & Attribute.DefaultTo<0>;
+    type: Attribute.Enumeration<
+      [
+        '\u041C\u0443\u0436\u0447\u0438\u043D\u044B',
+        '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "turnir",
     "pluralName": "turnirs",
-    "displayName": "Турнир"
+    "displayName": "Турнир",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,6 +35,13 @@
     "losses": {
       "type": "integer",
       "default": 0
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Мужчины",
+        "Женщины"
+      ]
     }
   }
 }
