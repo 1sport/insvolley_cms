@@ -20,6 +20,13 @@
       "type": "component",
       "repeatable": true,
       "component": "tournament.komandy"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Мужчины",
+        "Женщины"
+      ]
     }
   }
 }

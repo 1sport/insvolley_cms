@@ -18,6 +18,7 @@ export interface TournamentKomandy extends Schema.Component {
   info: {
     displayName: '\u041A\u043E\u043C\u0430\u043D\u0434\u044B';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
@@ -26,12 +27,6 @@ export interface TournamentKomandy extends Schema.Component {
     points: Attribute.Integer;
     wins: Attribute.Integer;
     losses: Attribute.Integer;
-    type: Attribute.Enumeration<
-      [
-        '\u041C\u0443\u0436\u0447\u0438\u043D\u044B',
-        '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
-      ]
-    >;
   };
 }
 

@@ -950,6 +950,12 @@ export interface ApiNationalRatingNationalRating extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     teams: Attribute.Component<'tournament.rejting', true>;
+    type: Attribute.Enumeration<
+      [
+        '\u041C\u0443\u0436\u0447\u0438\u043D\u044B',
+        '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1160,6 +1166,12 @@ export interface ApiTournamentTournament extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     teams: Attribute.Component<'tournament.komandy', true>;
+    type: Attribute.Enumeration<
+      [
+        '\u041C\u0443\u0436\u0447\u0438\u043D\u044B',
+        '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -20,6 +20,13 @@
       "type": "component",
       "repeatable": true,
       "component": "tournament.rejting"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Мужчины",
+        "Женщины"
+      ]
     }
   }
 }
