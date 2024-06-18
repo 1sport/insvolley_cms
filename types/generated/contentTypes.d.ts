@@ -835,6 +835,38 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   };
 }
 
+export interface ApiCalendarCalendar extends Schema.CollectionType {
+  collectionName: 'calendars';
+  info: {
+    singularName: 'calendar';
+    pluralName: 'calendars';
+    displayName: '\u041A\u0430\u043B\u0435\u043D\u0434\u0430\u0440\u044C';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    events: Attribute.Component<'tournament.kalendar', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::calendar.calendar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::calendar.calendar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiInterviewInterview extends Schema.CollectionType {
   collectionName: 'interviews';
   info: {
@@ -901,6 +933,38 @@ export interface ApiInterviewInterview extends Schema.CollectionType {
       'api::interview.interview'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiNationalRatingNationalRating extends Schema.CollectionType {
+  collectionName: 'national_ratings';
+  info: {
+    singularName: 'national-rating';
+    pluralName: 'national-ratings';
+    displayName: '\u0420\u0435\u0439\u0442\u0438\u043D\u0433\u0438 \u0441\u0431\u043E\u0440\u043D\u044B\u0445';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    teams: Attribute.Component<'tournament.rejting', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::national-rating.national-rating',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::national-rating.national-rating',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1082,6 +1146,38 @@ export interface ApiTagTag extends Schema.CollectionType {
   };
 }
 
+export interface ApiTournamentTournament extends Schema.CollectionType {
+  collectionName: 'tournaments';
+  info: {
+    singularName: 'tournament';
+    pluralName: 'tournaments';
+    displayName: '\u0422\u0443\u0440\u043D\u0438\u0440\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    teams: Attribute.Component<'tournament.komandy', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tournament.tournament',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tournament.tournament',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTurnirTurnir extends Schema.CollectionType {
   collectionName: 'turnirs';
   info: {
@@ -1172,11 +1268,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::author.author': ApiAuthorAuthor;
+      'api::calendar.calendar': ApiCalendarCalendar;
       'api::interview.interview': ApiInterviewInterview;
+      'api::national-rating.national-rating': ApiNationalRatingNationalRating;
       'api::partner.partner': ApiPartnerPartner;
       'api::post.post': ApiPostPost;
       'api::rating.rating': ApiRatingRating;
       'api::tag.tag': ApiTagTag;
+      'api::tournament.tournament': ApiTournamentTournament;
       'api::turnir.turnir': ApiTurnirTurnir;
       'api::video-media.video-media': ApiVideoMediaVideoMedia;
     }

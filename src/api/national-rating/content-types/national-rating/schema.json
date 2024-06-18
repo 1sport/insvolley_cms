@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "national_ratings",
+  "info": {
+    "singularName": "national-rating",
+    "pluralName": "national-ratings",
+    "displayName": "Рейтинги сборных",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "teams": {
+      "type": "component",
+      "repeatable": true,
+      "component": "tournament.rejting"
+    }
+  }
+}

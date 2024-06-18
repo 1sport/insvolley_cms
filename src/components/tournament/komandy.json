@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_tournament_komandy",
+  "info": {
+    "displayName": "Команды",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "game": {
+      "type": "integer"
+    },
+    "points": {
+      "type": "integer"
+    },
+    "wins": {
+      "type": "integer"
+    },
+    "losses": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Мужчины",
+        "Женщины"
+      ]
+    }
+  }
+}
