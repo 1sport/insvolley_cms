@@ -5,11 +5,18 @@ export interface TournamentKalendar extends Schema.Component {
   info: {
     displayName: '\u041A\u0430\u043B\u0435\u043D\u0434\u0430\u0440\u044C';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     date: Attribute.Date;
     name: Attribute.String;
     place: Attribute.String;
+    type: Attribute.Enumeration<
+      [
+        '\u041C\u0443\u0436\u0447\u0438\u043D\u044B',
+        '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
+      ]
+    >;
   };
 }
 
