@@ -7,9 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "date": {
-      "type": "date"
-    },
     "name": {
       "type": "string"
     },
@@ -22,6 +19,9 @@
         "Мужчины",
         "Женщины"
       ]
+    },
+    "date": {
+      "type": "string"
     }
   }
 }

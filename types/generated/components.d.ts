@@ -8,7 +8,6 @@ export interface TournamentKalendar extends Schema.Component {
     description: '';
   };
   attributes: {
-    date: Attribute.Date;
     name: Attribute.String;
     place: Attribute.String;
     type: Attribute.Enumeration<
@@ -17,6 +16,7 @@ export interface TournamentKalendar extends Schema.Component {
         '\u0416\u0435\u043D\u0449\u0438\u043D\u044B'
       ]
     >;
+    date: Attribute.String;
   };
 }
 
